@@ -9,8 +9,12 @@ def run_math_addition_loop(qty_questions):
         z = random.randint(0, 25)
         prompt = input(str(a) + ' + ' + str(z) + ':')
         result = a + z
-        if result == int(prompt):
-            correct += 1
+        try:
+            ans = int(prompt)
+            if result == ans:
+                correct += 1
+        except ValueError:
+            pass
     rate = correct/qty_questions * 100
     print('You got ' + str(correct) + ' correct out of ' + str(qty_questions))
     print('This is a passing rate of ' + str(rate) + '%')
@@ -24,8 +28,12 @@ def run_math_subtraction_loop(qty_questions):
         z = random.randint(0, 25)
         result = a + z
         prompt = input(str(result) + ' - ' + str(z) + ':')
-        if a == int(prompt):
-            correct += 1
+        try:
+            ans = int(prompt)
+            if a == ans:
+                correct += 1
+        except ValueError:
+            pass
     rate = correct/qty_questions * 100
     print('You got ' + str(correct) + ' correct out of ' + str(qty_questions))
     print('This is a passing rate of ' + str(rate) + '%')
@@ -39,8 +47,12 @@ def run_math_multiplication_loop(qty_questions):
         z = random.randint(0, 12)
         prompt = input(str(a) + ' x ' + str(z) + ':')
         result = a * z
-        if result == int(prompt):
-            correct += 1
+        try:
+            ans = int(prompt)
+            if result == ans:
+                correct += 1
+        except ValueError:
+            pass
     rate = correct/qty_questions * 100
     print('You got ' + str(correct) + ' correct out of ' + str(qty_questions))
     print('This is a passing rate of ' + str(rate) + '%')
@@ -54,8 +66,12 @@ def run_math_division_loop(qty_questions):
         z = random.randint(0, 12)
         result = a * z
         prompt = input(str(result) + ' / ' + str(z) + ':')
-        if a == int(prompt):
-            correct += 1
+        try:
+            ans = int(prompt)
+            if a == ans:
+                correct += 1
+        except ValueError:
+            pass
     rate = correct/qty_questions * 100
     print('You got ' + str(correct) + ' correct out of ' + str(qty_questions))
     print('This is a passing rate of ' + str(rate) + '%')

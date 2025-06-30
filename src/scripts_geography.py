@@ -1,6 +1,7 @@
 import json
 import random
 
+
 from control.scripts_app import build_menu_and_prompt
 
 
@@ -156,10 +157,13 @@ def run_geo_capital_loop(qty_questions):
         capitals = list(uss.values())
         prompt = 'Pick the correct capital of ' + this_uss + ': '
         selection, menu_options = build_menu_and_prompt(capitals, prompt)
-        user_cap = menu_options[selection]
-        if user_cap == this_cap:
-            correct += 1
-            print('Correct!\n')
+        if selection in menu_options.keys():
+            user_cap = menu_options[selection]
+            if user_cap == this_cap:
+                correct += 1
+                print('Correct!\n')
+            else:
+                print('Incorrect. The correct answer was ' + this_cap + '\n')
         else:
             print('Incorrect. The correct answer was ' + this_cap + '\n')
 
@@ -203,10 +207,13 @@ def run_geo_state_loop(qty_questions):
         usstates = list(uss.keys())
         prompt = 'Pick the correct state for the city of ' + this_cap + ': '
         selection, menu_options = build_menu_and_prompt(usstates, prompt)
-        user_st = menu_options[selection]
-        if user_st == this_uss:
-            correct += 1
-            print('Correct!\n')
+        if selection in menu_options.keys():
+            user_st = menu_options[selection]
+            if user_st == this_uss:
+                correct += 1
+                print('Correct!\n')
+            else:
+                print('Incorrect. The correct answer was ' + this_uss + '\n')
         else:
             print('Incorrect. The correct answer was ' + this_uss + '\n')
 
