@@ -19,7 +19,7 @@ import re
 from control import scripts_app
 
 from src.scripts_math import (run_math_addition_loop, run_math_subtraction_loop,
-                              run_math_multiplication_loop,
+                              run_math_multiplication_loop, run_math_multiplication_factors,
                               run_math_division_loop)
 from src.scripts_geography import (display_capitals, display_abbreviations,
                                    run_geo_capital_loop, run_geo_state_loop)
@@ -78,6 +78,7 @@ def execute_menu_math(menu, config_string, qty_questions):
                        '1': lambda: run_math_subtraction_loop(qty_questions),
                        '2': lambda: run_math_multiplication_loop(qty_questions),
                        '3': lambda: run_math_division_loop(qty_questions),
+                       '4': lambda: run_math_multiplication_factors(qty_questions),
                        'W': lambda: scripts_app.set_qty_questions(),
                        'w': lambda: scripts_app.set_qty_questions()}
         if selection in ['Z', 'z']:
@@ -129,7 +130,8 @@ def build_menu_math(qty_questions):
             1: 'Subtraction',
             2: 'Multiplication',
             3: 'Division',
-            'W': 'Number of Questions in Set',
+            4: 'Multiplication Factor',
+            'W': 'Number of Questions in Set/Factor',
             'Z': 'Main menu'}
 
     execute_menu_math(menu, {}, qty_questions)

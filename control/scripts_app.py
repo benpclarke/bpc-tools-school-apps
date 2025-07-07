@@ -1,6 +1,6 @@
 
 def set_qty_questions():
-    prompt = 'Enter a number (for questions in set): '
+    prompt = 'Enter a number (for questions in set/multiplication factor): '
     qty_questions = input(prompt)
     try:
         qty_questions = int(qty_questions)
